@@ -8,7 +8,7 @@ interface NavbarProps {
 }
 const onScrollTop = () => {
   // 페이지 최상단으로 이동
-  window.scrollTo(0, 0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   // 스크롤 활성화
   document.body.style.overflow = 'auto';
 };
