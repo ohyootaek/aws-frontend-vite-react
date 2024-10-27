@@ -11,6 +11,9 @@
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
+  "resolutions": {
+    "rollup": "4.20.0"
+  },
   "dependencies": {
     "gsap": "^3.12.5",
     "react": "^18.3.1",
