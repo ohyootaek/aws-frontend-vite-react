@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 2000px;
 }
 .section {
   background-color: black;
@@ -22,12 +23,95 @@
 .section p {
   padding-top: 70px;
 }
+.skills {
+  padding: 20px;
+  max-width: 700px;
+  margin-top: 200px;
+  color: #333;
+  text-align: center;
+}
 
+.skills h1 {
+  opacity: 0; /* 초기 상태로 숨김 */
+  transform: translateY(10px); /* 아래에서 올라오는 초기 위치 설정 */
+  text-align: center;
+  margin-bottom: 100px;
+  color: white;
+}
+
+.skill-category {
+  margin-bottom: 30px;
+}
+
+.skill-category h2 {
+  opacity: 0; /* 초기 상태로 숨김 */
+  transform: translateY(10px); /* 아래에서 올라오는 초기 위치 설정 */
+  margin-bottom: 40px;
+  color: #888888;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* 가로 방향 중앙 정렬 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+}
+
+.skill-item {
+  transform: translateY(10px); /* 아래에서 올라오는 초기 위치 설정 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 130px;
+  height: 130px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #888888;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+.skill-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
 @media (max-width: 768px) {
+  .home {
+    height: 2000px;
+  }
   .section h2 {
     padding-top: 70px;
   }
   .section p {
     padding-top: 30px;
+  }
+  .skills {
+    padding: 10px;
+    max-width: 400px;
+    margin-top: 100px;
+    color: #333;
+  }
+  .skill-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skills h1 {
+    margin-bottom: 50px;
+  }
+
+  .skill-category h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .skill-item {
+    width: 110px;
+    height: 110px;
+    padding: 10px;
   }
 }
