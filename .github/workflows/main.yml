@@ -1,0 +1,44 @@
+name: CI/CD Pipeline for Frontend-Vite-react
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 코드 가져오기
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js v20.17.0
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.17.0'
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Build frontend
+      run: yarn build
+
+    - name: Docker build & push to Docker Hub
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest .
+        docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_PRIVATE_KEY }}
+        script: |
+          cd /home/ubuntu/project
+          docker-compose pull frontend
+          docker-compose up -d frontend
+          docker system prune -f
