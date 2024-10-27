@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 .section {
   opacity: 0; /* 초기 상태로 숨김 */
   transform: translateY(50px); /* 초기 상태로 약간 아래로 이동 */
