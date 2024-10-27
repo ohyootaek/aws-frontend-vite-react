@@ -23,8 +23,12 @@ jobs:
         run: |
           if [ -f package-lock.json ]; then rm package-lock.json; fi
 
+      - name: Remove yarn.lock if exists
+        run: |
+          if [ -f yarn.lock ]; then rm yarn.lock; fi
+
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --force
 
       - name: Build frontend with Vite
         run: yarn build
