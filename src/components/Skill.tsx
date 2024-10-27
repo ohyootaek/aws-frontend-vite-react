@@ -4,6 +4,7 @@ import ScrollMagic from 'scrollmagic';
 import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
 import './styles/Skill.css';
 
+// @ts-ignore
 ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 import certbot from '../assets/certbot.svg';

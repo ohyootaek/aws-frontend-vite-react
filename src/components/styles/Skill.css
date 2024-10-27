@@ -22,7 +22,6 @@
 .skill-category h2 {
   opacity: 0; /* 초기 상태로 숨김 */
   transform: translateY(10px); /* 아래에서 올라오는 초기 위치 설정 */
-  font-size: 1.5rem;
   margin-bottom: 40px;
   color: #888888;
 }
@@ -31,10 +30,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center; /* 가로 방향 중앙 정렬 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
 }
 
 .skill-item {
-  opacity: 0; /* 초기 상태로 숨김 */
   transform: translateY(10px); /* 아래에서 올라오는 초기 위치 설정 */
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@
   margin-bottom: 10px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .skills {
     padding: 10px;
     max-width: 400px;
@@ -75,13 +75,11 @@
 
   .skills h1 {
     margin-bottom: 50px;
-    font-size: 1.5rem;
   }
 
   .skill-category h2 {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 1.1rem;
   }
 
   .skill-item {
