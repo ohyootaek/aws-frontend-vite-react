@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 2000px;
+  height: 2200px;
 }
 .section {
   background-color: black;
@@ -96,8 +96,8 @@
     color: #333;
   }
   .skill-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .skills h1 {
@@ -110,8 +110,9 @@
   }
 
   .skill-item {
-    width: 110px;
-    height: 110px;
+    width: 95px;
+    height: 95px;
     padding: 10px;
+    font-size: 12px;
   }
 }
