@@ -3,9 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles/Navbar.css';
 
-interface NavbarProps {
-  className?: string;
-}
 const onScrollTop = () => {
   // 페이지 최상단으로 이동
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -13,7 +10,7 @@ const onScrollTop = () => {
   document.body.style.overflow = 'auto';
 };
 
-const Navbar: React.FC<NavbarProps> = ({ className }) => {
+const Navbar = ({ className }) => {
   return (
       <nav className={`navbar ${className || ''}`}>
         <Link to="/" onClick={onScrollTop}>Home</Link>

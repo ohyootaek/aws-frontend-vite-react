@@ -23,12 +23,7 @@ import springboot from '../assets/springboot.svg';
 import typescript from '../assets/typescript.svg';
 import vue3 from '../assets/vue3.svg';
 
-interface SkillItemProps {
-  name: string;
-  icon: string;
-}
-
-const SkillItem: React.FC<SkillItemProps> = ({ name, icon }) => {
+const SkillItem = ({ name, icon }) => {
   const itemRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
