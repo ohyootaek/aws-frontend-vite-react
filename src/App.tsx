@@ -42,7 +42,6 @@ const App = () => {
 
   return (
     <>
-
       <div onClick={handleClick}>
         <Navbar className={showNavbar ? 'navbar show' : 'navbar'} />
         <Routes>

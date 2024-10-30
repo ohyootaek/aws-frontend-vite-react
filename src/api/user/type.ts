@@ -9,17 +9,17 @@ export interface UserInDto {
 }
 
 export interface UserOutVo {
-  id: string;
-  pwd: string;
-  phone: string;
-  name: string;
-  address: string;
-  email: string;
-  image_path: string;
-  role: string;
+  id: string
+  pwd: string
+  phone: string
+  name: string
+  address: string
+  email: string
+  image_path: string
+  role: string
 }
 
 export interface UserResponseDto {
-  userInfo: UserOutVo;
-  jwtToken: JwtTokenVo;
+  userInfo: UserOutVo
+  jwtToken: JwtTokenVo
 }

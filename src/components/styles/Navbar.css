@@ -13,7 +13,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transform: translateY(-100%); /* 초기 상태에서 위쪽에 숨김 */
   opacity: 0; /* 초기 상태에서 투명 */
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
   z-index: 1000;
   height: 70px;
 }
@@ -21,8 +23,6 @@
 .navbar.show {
   transform: translateY(0); /* 화면에 보이도록 변경 */
 }
-
-
 
 /* Navbar가 나타날 때 적용되는 클래스 */
 .navbar.show {

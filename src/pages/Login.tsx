@@ -23,13 +23,12 @@ const Login = () => {
     onError: (error) => {
       alert(error)
     },
-  });
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     await postLogin({ id, pwd })
   }
-
 
   return (
     <div className='login-card'>
@@ -99,15 +98,16 @@ const Login = () => {
             <li>
               <strong>Axios 에서 Token 사용</strong>
               <br />
-              Token 은 Header 에 담아 서버에 전달합니다.<br />
-              api 호출 시, Axios intercepter 에서 Token 검증을 미리 할 수 있습니다.
-              이를 통해 클라이언트는 상태를 유지할 수 있습니다.
+              Token 은 Header 에 담아 서버에 전달합니다.
+              <br />
+              api 호출 시, Axios intercepter 에서 Token 검증을 미리 할 수 있습니다. 이를 통해
+              클라이언트는 상태를 유지할 수 있습니다.
             </li>
             <li>
               <strong>서버에서 Token 확인</strong>
               <br />
-              Header 에 담긴 Token 을 Spring filter 단계에서 추출 후 검증합니다. 이후 올바른 Token 이면
-              Controller 에 접근할 수 있습니다.
+              Header 에 담긴 Token 을 Spring filter 단계에서 추출 후 검증합니다. 이후 올바른 Token
+              이면 Controller 에 접근할 수 있습니다.
             </li>
             <li>
               <strong>Refresh token 사용</strong>
