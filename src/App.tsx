@@ -41,16 +41,17 @@ const App = () => {
   }, [])
 
   return (
-    <Router>
-      <Navbar className={showNavbar ? 'navbar show' : 'navbar'} />
+    <>
+
       <div onClick={handleClick}>
+        <Navbar className={showNavbar ? 'navbar show' : 'navbar'} />
         <Routes>
           {routes.map(({ path, element }) => (
             <Route key={path} path={path} element={element} />
           ))}
         </Routes>
       </div>
-    </Router>
+    </>
   )
 }
 

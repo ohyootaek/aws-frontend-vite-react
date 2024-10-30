@@ -1,7 +1,94 @@
-.login {
+/* Main card style */
+.login-card {
+  margin-top: 100px;
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 세로 방향으로 배치 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+  height: 1400px; /* 동적 높이로 변경 */
+}
+
+/* Header style */
+.login-card h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Input group for each label-input pair */
+.input-group {
+  margin-bottom: 20px;
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 세로 방향으로 배치 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+}
+
+/* Label style */
+.input-group label {
+  display: block;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+/* Input field styling */
+.input-group input {
+  width: 200px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: blue;
+}
+
+/* Button styling */
+.login-button {
+  width: 200px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 10px; /* 버튼과 인풋 사이의 간격 */
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.login-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* List styling */
+.login-card ul {
+  list-style-type: none; /* 기본 불릿 스타일 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+/* Individual list item styling */
+.login-card li {
+  max-width: 600px; /* 최대 너비 설정 */
+  background-color: #f8f9fa; /* 배경색 설정 */
+  padding: 15px; /* 패딩 추가 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  margin-top: 10px; /* 아이템 간의 간격 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
+  transition: background-color 0.2s ease; /* 배경색 변화에 부드러운 효과 추가 */
+}
+
+/* Hover effect */
+.login-card li:hover {
+  background-color: #e9ecef; /* 마우스 오버 시 배경색 변화 */
+}
+
+.login-card h3 {
+  width: 100%;
   margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 2500px;
+  margin-bottom: 20px;
 }

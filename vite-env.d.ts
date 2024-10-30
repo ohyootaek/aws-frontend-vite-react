@@ -5,7 +5,7 @@ declare module '*.svg' {
 }
 
 interface ImportMetaEnv {
-  readonly VITE_API_URL: string; // 예시: 사용자 지정 환경 변수
+  readonly VITE_API_BASE_URL: string; // 예시: 사용자 지정 환경 변수
   // 추가할 변수 정의
 }
 

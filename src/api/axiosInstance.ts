@@ -1,10 +1,9 @@
 import axios from 'axios'
-import {RefreshResponse} from "./types";
+import {RefreshResponse} from "./type";
 
 const accessToken = localStorage.getItem('accessToken');
-
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 2000,
   headers: {
     'content-type': 'application/json',
@@ -25,7 +24,7 @@ axiosInstance.interceptors.response.use(
         // 리프레시 토큰을 사용해 새 액세스 토큰 요청
         const refreshToken = localStorage.getItem('refreshToken')
         const response: Axios.AxiosXHR<RefreshResponse> = await axios.post(
-          `${import.meta.env.VITE_API_URL}/user/refresh`,
+          `${import.meta.env.VITE_API_BASE_URL}/user/refresh`,
           {
             refreshToken,
           },

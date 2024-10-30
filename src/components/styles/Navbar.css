@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center; /* 중앙 정렬 */
   align-items: center;
-  background-color: rgba(51, 51, 51, 0.9);
   color: white;
   padding: 1rem;
   gap: 2rem;
@@ -21,7 +20,6 @@
 
 .navbar.show {
   transform: translateY(0); /* 화면에 보이도록 변경 */
-  opacity: 1; /* 투명도 제거 */
 }
 
 
