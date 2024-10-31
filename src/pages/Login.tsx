@@ -88,7 +88,7 @@ const Login = () => {
               <br />
               Refresh Token: Access Token이 만료되었을 때 새로 생성하기 위한 Token 입니다.
               <br />
-              Refresh Token 의 시간이 만료되지 않는다면 무한 Refresh 가능한 방식입니다.
+              Refresh Token 의 시간이 만료되지 않았다면 무한 Refresh 가능한 방식입니다.
             </li>
             <li>
               <strong>Localstorage 에 Token 저장</strong>
