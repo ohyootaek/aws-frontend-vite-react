@@ -22,24 +22,24 @@ import redis from '../assets/redis.svg'
 import springboot from '../assets/springboot.svg'
 import typescript from '../assets/typescript.svg'
 import vue3 from '../assets/vue3.svg'
-
+const controller = new ScrollMagic.Controller();
 const SkillItem = ({ name, icon }) => {
   const itemRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const controller = new ScrollMagic.Controller()
 
     if (itemRef.current) {
       const animation = gsap.fromTo(
         itemRef.current,
         { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 1 },
+        { opacity: 1, y: 0, duration: 1, overwrite: true },
       )
 
       new ScrollMagic.Scene({
         triggerElement: itemRef.current,
         triggerHook: 0.8,
         reverse: true,
+        duration: 200,
       })
         .setTween(animation)
         .addTo(controller)
@@ -63,20 +63,20 @@ const Home: React.FC = () => {
   const h2Refs = useRef<(HTMLHeadingElement | null)[]>([])
 
   useEffect(() => {
-    const controller = new ScrollMagic.Controller()
 
     const addScrollEffect = (element: HTMLElement | null) => {
       if (element) {
         const animation = gsap.fromTo(
           element,
           { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 1 },
+          { opacity: 1, y: 0, duration: 1, overwrite: true },
         )
 
         new ScrollMagic.Scene({
           triggerElement: element,
           triggerHook: 0.8,
           reverse: true,
+          duration: 200,
         })
           .setTween(animation)
           .addTo(controller)
