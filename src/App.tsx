@@ -11,7 +11,7 @@ const routes = [
   { path: '/', element: <Home /> },
   { path: '/login', element: <Login /> },
 ];
-
+history.scrollRestoration = "auto";
 const App = () => {
   const [showNavbar, setShowNavbar] = useState(false);
 
