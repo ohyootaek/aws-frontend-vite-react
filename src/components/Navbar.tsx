@@ -1,16 +1,18 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles/Navbar.css'
+
+const navLinks = [
+  { path: '/', label: 'Home' },
+  { path: '/login', label: localStorage.getItem('isLoginYn') != 'Y' ? 'Login' : 'Logout' },
+  { path: '/webrtc', label: 'Web-RTC' },
+]
 
 const Navbar = ({ className }) => {
   return (
     <nav className={`navbar ${className || ''}`}>
-      <Link to='/'>
-        Home
-      </Link>
-      <Link to='/login'>
-        Login
-      </Link>
+      {navLinks.map(({ path, label }, index) => {
+        return <Link key={index} to={path}>{label}</Link>
+      })}
     </nav>
   )
 }
