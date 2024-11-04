@@ -15,7 +15,7 @@ const Navbar = ({ className }) => {
       <Link to='/' onClick={onScrollTop}>
         Home
       </Link>
-      <Link to='/login' onClick={onScrollTop}>
+      <Link to='/login'>
         Login
       </Link>
     </nav>
