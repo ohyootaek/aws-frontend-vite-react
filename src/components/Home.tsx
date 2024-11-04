@@ -1,13 +1,6 @@
 // Home.tsx
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import './styles/Home.css'
-
-import { gsap } from 'gsap'
-import ScrollMagic from 'scrollmagic'
-import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap'
-
-// @ts-ignore
-ScrollMagicPluginGsap(ScrollMagic, gsap)
 
 import certbot from '../assets/certbot.svg'
 import docker from '../assets/docker.svg'
@@ -22,75 +15,16 @@ import redis from '../assets/redis.svg'
 import springboot from '../assets/springboot.svg'
 import typescript from '../assets/typescript.svg'
 import vue3 from '../assets/vue3.svg'
-const controller = new ScrollMagic.Controller();
 const SkillItem = ({ name, icon }) => {
-  const itemRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-
-    if (itemRef.current) {
-      const animation = gsap.fromTo(
-        itemRef.current,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 1, overwrite: true },
-      )
-
-      new ScrollMagic.Scene({
-        triggerElement: itemRef.current,
-        triggerHook: 0.8,
-        reverse: true,
-        duration: 200,
-      })
-        .setTween(animation)
-        .addTo(controller)
-    }
-
-    return () => {
-      controller.destroy()
-    }
-  }, [])
-
   return (
-    <div ref={itemRef} className='skill-item'>
+    <div className='skill-item'>
       <img src={icon} alt={`${name} icon`} className='skill-icon' />
       <p>{name}</p>
     </div>
   )
 }
 
-const Home: React.FC = () => {
-  const h1Ref = useRef<HTMLHeadingElement | null>(null)
-  const h2Refs = useRef<(HTMLHeadingElement | null)[]>([])
-
-  useEffect(() => {
-
-    const addScrollEffect = (element: HTMLElement | null) => {
-      if (element) {
-        const animation = gsap.fromTo(
-          element,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 1, overwrite: true },
-        )
-
-        new ScrollMagic.Scene({
-          triggerElement: element,
-          triggerHook: 0.8,
-          reverse: true,
-          duration: 200,
-        })
-          .setTween(animation)
-          .addTo(controller)
-      }
-    }
-
-    addScrollEffect(h1Ref.current)
-
-    h2Refs.current.forEach(addScrollEffect)
-
-    return () => {
-      controller.destroy()
-    }
-  }, [])
+const Home = () => {
 
   const frontendSkills = [
     { name: 'Vite-React', icon: react },
@@ -117,8 +51,8 @@ const Home: React.FC = () => {
 
   return (
     <div className='home'>
-      <div ref={h1Ref} className='section'>
-        <h1 ref={h1Ref}>
+      <div className='section'>
+        <h1>
           Welcome to
           <br /> YOOTAEK Site.
         </h1>
@@ -135,10 +69,10 @@ const Home: React.FC = () => {
         </p>
       </div>
       <div className='skills'>
-        <h1 ref={h1Ref}>Skills</h1>
+        <h1>Skills</h1>
 
         <div className='skill-category'>
-          <h2 ref={(el) => (h2Refs.current[0] = el)}>Deploy</h2>
+          <h2>Deploy</h2>
           <div className='skill-list'>
             {deploySkills.map((skill) => (
               <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />
@@ -147,7 +81,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className='skill-category'>
-          <h2 ref={(el) => (h2Refs.current[1] = el)}>Frontend</h2>
+          <h2>Frontend</h2>
           <div className='skill-list'>
             {frontendSkills.map((skill) => (
               <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />
@@ -156,7 +90,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className='skill-category'>
-          <h2 ref={(el) => (h2Refs.current[2] = el)}>Backend</h2>
+          <h2>Backend</h2>
           <div className='skill-list'>
             {backendSkills.map((skill) => (
               <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />

@@ -6,6 +6,7 @@
   align-items: center; /* 세로 방향 중앙 정렬 */
   height: auto;
   padding-bottom: 50px;
+  width: 100%;
 }
 
 /* Header style */
@@ -95,6 +96,10 @@
 }
 
 @media (max-width: 768px) {
+  .login-card {
+    width: 100%;
+  }
+
   .login-info {
     width: 100%;
     padding: 20px;

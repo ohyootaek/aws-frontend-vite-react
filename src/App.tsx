@@ -1,57 +1,67 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
-import Home from './components/Home'
-import Login from './pages/Login'
-import Navbar from './components/Navbar'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Login from './pages/Login';
+import Navbar from './components/Navbar';
+import './App.css';
+import { KeepAlive, AliveScope } from 'react-activation';
 
 const routes = [
   { path: '/', element: <Home /> },
   { path: '/login', element: <Login /> },
-]
+];
 
 const App = () => {
-  const [showNavbar, setShowNavbar] = useState(false)
-  const [scrolling, setScrolling] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
 
-  // 클릭으로 Navbar 표시 상태를 토글하는 함수
-  const handleClick = () => {
-    setShowNavbar((prevShowNavbar) => !prevShowNavbar) // 상태 반전
-  }
+  // 클릭 이벤트 핸들러
+  const handleBodyClick = () => {
+    setShowNavbar((prevShowNavbar) => !prevShowNavbar);
+  };
 
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout
-    const handleScroll = () => {
-      setShowNavbar(true)
-      setScrolling(true)
+    // body에 클릭 이벤트 추가
+    document.body.addEventListener('click', handleBodyClick);
 
-      // 스크롤 멈춤 감지 후 1초가 지나면 Navbar 숨김
-      clearTimeout(scrollTimeout)
-      scrollTimeout = setTimeout(() => {
-        setShowNavbar(false)
-        setScrolling(false)
-      }, 1000)
-    }
-
-    window.addEventListener('scroll', handleScroll)
+    // 컴포넌트 언마운트 시 이벤트 제거
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-      clearTimeout(scrollTimeout) // 컴포넌트 언마운트 시 타이머 정리
-    }
-  }, [])
+      document.body.removeEventListener('click', handleBodyClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    let scrollTimeout;
+    const handleScroll = () => {
+      setShowNavbar(true);
+      setScrolling(true);
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        setShowNavbar(false);
+        setScrolling(false);
+      }, 1000);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
 
   return (
-    <>
-      <div onClick={handleClick}>
-        <Navbar className={showNavbar ? 'navbar show' : 'navbar'} />
-        <Routes>
-          {routes.map(({ path, element }) => (
-            <Route key={path} path={path} element={element} />
-          ))}
-        </Routes>
+      <div>
+        <AliveScope>
+          <Navbar className={showNavbar ? 'navbar show' : 'navbar'} />
+          <Routes>
+            {routes.map(({ path, element }) => (
+                <Route key={path} path={path} element={<KeepAlive>{element}</KeepAlive>} />
+            ))}
+          </Routes>
+        </AliveScope>
       </div>
-    </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
