@@ -15,6 +15,7 @@ import redis from '../assets/redis.svg'
 import springboot from '../assets/springboot.svg'
 import typescript from '../assets/typescript.svg'
 import vue3 from '../assets/vue3.svg'
+
 const SkillItem = ({ name, icon }) => {
   return (
     <div className='skill-item'>
@@ -25,7 +26,6 @@ const SkillItem = ({ name, icon }) => {
 }
 
 const Home = () => {
-
   const frontendSkills = [
     { name: 'Vite-React', icon: react },
     { name: 'Vue3', icon: vue3 },

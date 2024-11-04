@@ -100,8 +100,8 @@ const Login = () => {
               <br />
               Token 은 Header 에 담아 서버에 전달합니다.
               <br />
-              api 호출 시, Access Token 이 만료되면 Axios Interceptor 에서 Refresh Token 검증을 할 수 있습니다. 이를 통해
-              클라이언트는 상태를 유지할 수 있습니다.
+              api 호출 시, Access Token 이 만료되면 Axios Interceptor 에서 Refresh Token 검증을 할
+              수 있습니다. 이를 통해 클라이언트는 상태를 유지할 수 있습니다.
             </li>
             <li>
               <strong>서버에서 Token 확인</strong>
