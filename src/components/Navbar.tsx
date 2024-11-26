@@ -3,7 +3,7 @@ import './styles/Navbar.css'
 
 const navLinks = [
   { path: '/', label: 'Home' },
-  { path: '/login', label: localStorage.getItem('isLoginYn') != 'Y' ? 'Login' : 'Logout' },
+  { path: '/login', label: 'Login' },
   { path: '/webrtc', label: 'Web-RTC' },
 ]
 

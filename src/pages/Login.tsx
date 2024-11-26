@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <div className='login-card'>
       <h2>Login Example</h2>
-      {localStorage.getItem('isLoginYn') != 'Y' ? (
+      {!localStorage.getItem('isLoginYn') ? (
         <form onSubmit={handleSubmit}>
           <div className='input-group'>
             <label htmlFor='id'>ID</label>
@@ -74,7 +74,7 @@ const Login = () => {
           Logout
         </button>
       )}
-      {localStorage.getItem('isLoginYn') == 'Y' && (
+      {localStorage.getItem('isLoginYn') && (
         <div className='login-info'>
           <h3>JWT Token / Localstorage 사용 방식으로 구현하기</h3>
           <ul>
