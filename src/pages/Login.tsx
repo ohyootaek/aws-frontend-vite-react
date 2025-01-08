@@ -15,9 +15,9 @@ const Login = () => {
     data,
   } = userApi.usePostLogin({
     onSuccess: (data) => {
-      localStorage.setItem('accessToken', data?.jwtToken?.accessToken)
-      localStorage.setItem('refreshToken', data?.jwtToken?.refreshToken)
-      localStorage.setItem('isLoginYn', 'Y')
+      sessionStorage.setItem('accessToken', data?.jwtToken?.accessToken)
+      sessionStorage.setItem('refreshToken', data?.jwtToken?.refreshToken)
+      sessionStorage.setItem('isLoginYn', 'Y')
       alert('환영합니다!')
     },
     onError: (error) => {
@@ -32,7 +32,7 @@ const Login = () => {
 
   const onLogout = () => {
     if(confirm('로그아웃 하시겠습니까?')) {
-      return localStorage.clear();
+      return sessionStorage.clear();
     } else {
       return;
     }
@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <div className='login-card'>
       <h2>Login Example</h2>
-      {!localStorage.getItem('isLoginYn') ? (
+      {!sessionStorage.getItem('isLoginYn') ? (
         <form onSubmit={handleSubmit}>
           <div className='input-group'>
             <label htmlFor='id'>ID</label>
@@ -74,9 +74,9 @@ const Login = () => {
           Logout
         </button>
       )}
-      {localStorage.getItem('isLoginYn') && (
+      {sessionStorage.getItem('isLoginYn') && (
         <div className='login-info'>
-          <h3>JWT Token / Localstorage 사용 방식으로 구현하기</h3>
+          <h3>JWT Token / SessionStorage 사용 방식으로 구현하기</h3>
           <ul>
             <li>
               <strong>Button Event 호출</strong>
@@ -105,9 +105,9 @@ const Login = () => {
               Refresh Token 의 시간이 만료되지 않았다면 무한 Refresh 가능한 방식입니다.
             </li>
             <li>
-              <strong>Localstorage 에 Token 저장</strong>
+              <strong>SessionStorage 에 Token 저장</strong>
               <br />
-              서버로부터 전달 받은 Access Token 과 Refresh Token 을 Localstorage 에 저장합니다.
+              서버로부터 전달 받은 Access Token 과 Refresh Token 을 SessionStorage 에 저장합니다.
             </li>
             <li>
               <strong>Axios 에서 Token 사용</strong>
