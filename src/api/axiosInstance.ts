@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { RefreshResponse } from './type'
 
-const accessToken = localStorage.getItem('accessToken')
+const accessToken = sessionStorage.getItem('accessToken')
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 2000,
@@ -22,7 +22,7 @@ axiosInstance.interceptors.response.use(
 
       try {
         // 리프레시 토큰을 사용해 새 액세스 토큰 요청
-        const refreshToken = localStorage.getItem('refreshToken')
+        const refreshToken = sessionStorage.getItem('refreshToken')
         const response: Axios.AxiosXHR<RefreshResponse> = await axios.post(
           `${import.meta.env.VITE_API_BASE_URL}/user/refresh`,
           {
@@ -33,19 +33,19 @@ axiosInstance.interceptors.response.use(
         // 새로운 액세스 토큰 저장 후 다시 요청
         const newAccessToken = response.data.accessToken
         const newRefleshToken = response.data.refreshToken
-        localStorage.setItem('accessToken', newAccessToken)
-        localStorage.setItem('refreshToken', newRefleshToken)
+          sessionStorage.setItem('accessToken', newAccessToken)
+          sessionStorage.setItem('refreshToken', newRefleshToken)
         originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`
 
         return axiosInstance(originalRequest) // 원래 요청 재실행
       } catch (err) {
-        localStorage.removeItem('accessToken')
-        localStorage.removeItem('refreshToken')
+          sessionStorage.removeItem('accessToken')
+          sessionStorage.removeItem('refreshToken')
         return Promise.reject(err)
       }
     }
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
+      sessionStorage.removeItem('accessToken')
+      sessionStorage.removeItem('refreshToken')
     return Promise.reject(error)
   },
 )
