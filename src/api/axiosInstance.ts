@@ -39,13 +39,11 @@ axiosInstance.interceptors.response.use(
 
         return axiosInstance(originalRequest) // 원래 요청 재실행
       } catch (err) {
-          sessionStorage.removeItem('accessToken')
-          sessionStorage.removeItem('refreshToken')
+        localStorage.clear();
         return Promise.reject(err)
       }
     }
-      sessionStorage.removeItem('accessToken')
-      sessionStorage.removeItem('refreshToken')
+    localStorage.clear();
     return Promise.reject(error)
   },
 )
