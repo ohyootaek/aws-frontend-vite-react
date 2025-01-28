@@ -5,6 +5,7 @@ const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/login', label: 'Login' },
   { path: '/webrtc', label: 'Web-RTC' },
+  { path: '/chatting', label: 'Chatting' },
 ]
 
 const Navbar = ({ className }) => {

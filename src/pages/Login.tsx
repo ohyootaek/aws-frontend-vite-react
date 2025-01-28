@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const [id, setId] = useState('admin')
   const [pwd, setPwd] = useState('admin')
-  const navigate = useNavigate()
   const {
     mutate: postLogin,
     isPending,

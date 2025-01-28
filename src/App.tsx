@@ -7,11 +7,13 @@ import Navbar from './components/Navbar';
 import './App.css';
 import { KeepAlive } from 'react-activation';
 import WebRTC from "./pages/WebRTC";
+import Chatting from "./pages/Chatting";
 
 const routes = [
   { path: '/', element: <Home /> },
   { path: '/login', element: <Login /> },
   { path: '/webrtc', element: <WebRTC /> },
+  { path: '/chatting', element: <Chatting /> },
 ];
 const App = () => {
   const [showNavbar, setShowNavbar] = useState(false);
