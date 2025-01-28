@@ -9,7 +9,7 @@ const Chatting = () => {
 
   useEffect(() => {
     if (isNicknameSet) {
-      const socket = new WebSocket("ws://localhost:8080/ws/chat");
+      const socket = new WebSocket("wss://cariros.store/ws/chat");
       console.log(socket);
       socket.onopen = () => {
         console.log("WebSocket 연결이 열렸습니다.");
